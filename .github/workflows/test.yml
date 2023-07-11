@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: "20 19 * * *"
+    - cron: "26 19 * * *"
 jobs:
   test:
     runs-on: [self-hosted]
