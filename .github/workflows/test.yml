@@ -11,7 +11,8 @@ jobs:
       - name: test
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event_name == 'schedule' ? testBranch : master }}
+          ref: ${{ if github.event_name == 'schedule'}}testSchedule${{ else }}master${{ endif }}
+          fetch-depth: 0
       
       - name: test echo
         run: echo "done"
