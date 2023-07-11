@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: "33 19 * * *"
+    - cron: "35 19 * * *"
   workflow_dispatch: 
     inputs:
       workflow_id:
@@ -11,8 +11,8 @@ on:
         default: ""
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
-
       - name: test
         if: ${{ github.event_name == 'schedule' }}
         uses: actions/checkout@v2
