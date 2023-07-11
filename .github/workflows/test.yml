@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: "21 16 * * *"
+    - cron: "04 19 * * *"
 jobs:
   test:
     runs-on: [self-hosted]
@@ -11,7 +11,7 @@ jobs:
       - name: test
         uses: actions/checkout@v2
         with:
-          ref: ${{ if github.event_name == 'schedule'}}testSchedule${{ else }}master${{ endif }}
+          ref: ${{ if (github.event_name == 'schedule') }}testSchedule${{ else }}master${{ endif }}
           fetch-depth: 0
       
       - name: test echo
