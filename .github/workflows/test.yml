@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: "35 19 * * *"
+    - cron: "10 20 * * *"
   workflow_dispatch: 
     inputs:
       workflow_id:
@@ -24,7 +24,6 @@ jobs:
         if: ${{ github.event_name != 'schedule' }}
         uses: actions/checkout@v2
         with:
-          ref:  'master'
           fetch-depth: 0      
       - name: test echo
         run: echo "done"
