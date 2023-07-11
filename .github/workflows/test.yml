@@ -1,0 +1,17 @@
+name: test 
+
+on:
+  schedule:
+    - cron: "30 16 * * *"
+jobs:
+  test:
+    runs-on: [self-hosted]
+    steps:
+
+      - name: test
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event_name == 'schedule' ? testBranch : master }}
+      
+      - name: test echo
+        run: echo "done"
